@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produção Audiovisual | Entre Nós</title>
+  <meta name="description" content="Portfólio audiovisual de Suzana Campos: direção, roteiro, fotografia, captação e produção de vídeo.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#fafafa;--ink:#1a1a1a;--muted:#666;--line:#e5e5e5;--accent:#8b7355;--accent-dark:#6d5a43;--dark:#1a1a1a;--shadow:0 10px 28px rgba(0,0,0,.10)}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-weight:300}
+    h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:500;line-height:1.2}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1180px,calc(100% - 40px));margin:auto}
+    header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo{font-family:'Playfair Display',Georgia,serif;font-size:25px;font-weight:600}
+    .links{display:flex;align-items:center;list-style:none;gap:22px}
+    .links a{font-size:13px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);font-weight:500}
+    .links a:hover{color:var(--accent)}
+    .nav-button{background:var(--accent);color:#fff!important;border-radius:4px;padding:10px 16px}
+    .menu{display:none;border:0;background:transparent;font-size:26px}
+    .hero{padding:104px 0 82px;background:linear-gradient(135deg,#fafafa,#f1efec);text-align:center}
+    .eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:1.8px;color:var(--accent);font-weight:600;margin-bottom:16px}
+    .hero h1{font-size:clamp(40px,6vw,66px);letter-spacing:-1.5px;margin-bottom:20px}
+    .hero p{max-width:720px;margin:auto;color:var(--muted);font-size:18px}
+    section{padding:84px 0}
+    .section-head{max-width:720px;margin:0 auto 44px;text-align:center}
+    .section-head h2{font-size:clamp(30px,4vw,44px);margin-bottom:14px}
+    .section-head p{font-size:17px;color:var(--muted)}
+    .video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+    .video-card{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:var(--shadow);transition:transform .25s ease,box-shadow .25s ease}
+    .video-card:hover{transform:translateY(-5px);box-shadow:0 15px 35px rgba(0,0,0,.13)}
+    .thumbnail{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;background:#1a1a1a}
+    .thumbnail img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+    .video-card:hover .thumbnail img{transform:scale(1.04)}
+    .overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(to top,rgba(0,0,0,.55),rgba(0,0,0,.08))}
+    .play{display:grid;place-items:center;width:62px;height:62px;border-radius:50%;background:#fff;color:var(--accent);font-size:23px;padding-left:3px;box-shadow:0 4px 16px rgba(0,0,0,.3);transition:transform .2s ease}
+    .thumbnail:hover .play{transform:scale(1.1)}
+    .tag{position:absolute;left:15px;top:15px;background:rgba(0,0,0,.65);color:#fff;border-radius:3px;padding:5px 8px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.6px}
+    .video-content{padding:24px}
+    .video-content .year{color:var(--accent);font-size:12px;text-transform:uppercase;letter-spacing:1px;font-weight:600}
+    .video-content h3{font-size:28px;margin:8px 0 12px}
+    .video-content p{color:var(--muted);font-size:15px;margin-bottom:14px}
+    .credit{border-top:1px solid var(--line);padding-top:14px;font-size:13px;color:#51493f;line-height:1.55}
+    .watch{display:inline-flex;align-items:center;gap:9px;margin-top:19px;color:var(--accent);font-size:14px;font-weight:600}
+    .watch:hover{color:var(--accent-dark)}
+    .about{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .about-inner{max-width:800px;margin:auto;text-align:center}
+    .about-inner h2{font-size:clamp(30px,4vw,42px);margin-bottom:20px}
+    .about-inner p{font-size:17px;color:var(--muted);margin-bottom:16px}
+    .cta{background:linear-gradient(135deg,var(--accent),var(--accent-dark));color:#fff;text-align:center}
+    .cta h2{font-size:clamp(30px,4vw,44px);margin-bottom:14px}
+    .cta p{max-width:620px;margin:0 auto 28px;font-size:17px}
+    .button{display:inline-block;background:#fff;color:var(--accent);border-radius:4px;padding:13px 24px;font-size:14px;font-weight:600}
+    footer{padding:36px 0;background:var(--dark);color:#aaa;text-align:center;font-size:13px}
+    @media(max-width:760px){.links{display:none}.links.open{display:flex;position:absolute;top:78px;left:0;right:0;flex-direction:column;align-items:flex-start;background:#fff;padding:22px 20px;border-bottom:1px solid var(--line)}.menu{display:block}.hero{padding:76px 0 60px}.video-grid{grid-template-columns:1fr}section{padding:62px 0}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a class="logo" href="index.html">Entre Nós</a>
+        <button class="menu" type="button" onclick="document.querySelector('.links').classList.toggle('open')" aria-label="Abrir menu">☰</button>
+        <ul class="links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfólio</a></li>
+          <li><a href="#producoes">Audiovisual</a></li>
+          <li><a class="nav-button" href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">Portfólio audiovisual</div>
+        <h1>Histórias que pedem imagem, escuta e presença</h1>
+        <p>Direção, roteiro, fotografia, captação e produção de vídeo para narrativas autorais que procuram observar o humano com sensibilidade.</p>
+      </div>
+    </section>
+
+    <section id="producoes">
+      <div class="container">
+        <div class="section-head">
+          <h2>Produção audiovisual</h2>
+          <p>Projetos selecionados de curta-metragem, realizados entre trabalhos autorais e experiências de formação.</p>
+        </div>
+
+        <div class="video-grid">
+          <article class="video-card">
+            <a class="thumbnail" href="https://youtu.be/p9d8Fo-XjCw?is=z3P_-dA8agNMqbeL" target="_blank" rel="noopener noreferrer" aria-label="Assistir A Crise no YouTube">
+              <img src="https://img.youtube.com/vi/p9d8Fo-XjCw/hqdefault.jpg" alt="Miniatura do curta A Crise">
+              <span class="tag">Curta-metragem · 2021</span>
+              <span class="overlay"><span class="play">▶</span></span>
+            </a>
+            <div class="video-content">
+              <div class="year">Curta-metragem · 2021</div>
+              <h3>A Crise</h3>
+              <p>A sustentabilidade também fala sobre saúde mental: como viver bem em meio a tanto caos?</p>
+              <div class="credit"><strong>Roteiro, direção geral e captação:</strong> Suzana Campos.<br><strong>Reconhecimento:</strong> 3º lugar em concurso universitário da Uninove.</div>
+              <a class="watch" href="https://youtu.be/p9d8Fo-XjCw?is=z3P_-dA8agNMqbeL" target="_blank" rel="noopener noreferrer">Assistir no YouTube <span>→</span></a>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <a class="thumbnail" href="https://youtu.be/ajwr-n3SEF8?is=XTpWZBg1hOu37YZk" target="_blank" rel="noopener noreferrer" aria-label="Assistir Bia no YouTube">
+              <img src="https://img.youtube.com/vi/ajwr-n3SEF8/hqdefault.jpg" alt="Miniatura do curta Bia">
+              <span class="tag">Curta-metragem</span>
+              <span class="overlay"><span class="play">▶</span></span>
+            </a>
+            <div class="video-content">
+              <div class="year">Curta-metragem</div>
+              <h3>Bia</h3>
+              <p>Em tempos de pandemia, Bia enfrenta conflitos pessoais, solidão e os desafios de se tornar adulta.</p>
+              <div class="credit"><strong>Direção de fotografia e produção de vídeo:</strong> Suzana Campos.<br><strong>Direção:</strong> Antonio Rosa.</div>
+              <a class="watch" href="https://youtu.be/ajwr-n3SEF8?is=XTpWZBg1hOu37YZk" target="_blank" rel="noopener noreferrer">Assistir no YouTube <span>→</span></a>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <a class="thumbnail" href="https://youtu.be/XpuNYKQJYAM?is=y4Mwj4LUS7ze6n_V" target="_blank" rel="noopener noreferrer" aria-label="Assistir Emprego dos Sonhos no YouTube">
+              <img src="https://img.youtube.com/vi/XpuNYKQJYAM/hqdefault.jpg" alt="Miniatura do curta Emprego dos Sonhos">
+              <span class="tag">Curta-metragem · 2018</span>
+              <span class="overlay"><span class="play">▶</span></span>
+            </a>
+            <div class="video-content">
+              <div class="year">Curta-metragem · 2018</div>
+              <h3>Emprego dos Sonhos</h3>
+              <p>Curta realizado na Oficina de Direção do Senac, com um olhar cômico a partir do roteiro de Fernanda Beck.</p>
+              <div class="credit"><strong>Direção coletiva e atuação:</strong> Suzana Campos, Bruna Gabriel, Diego Campos, Felipe Fonseca e Ronaldo Cherri.</div>
+              <a class="watch" href="https://youtu.be/XpuNYKQJYAM?is=y4Mwj4LUS7ze6n_V" target="_blank" rel="noopener noreferrer">Assistir no YouTube <span>→</span></a>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <a class="thumbnail" href="https://youtu.be/dMp0qgreAFw?is=Q-7VP2dV8Mrb8EsG" target="_blank" rel="noopener noreferrer" aria-label="Assistir O Exame no YouTube">
+              <img src="https://img.youtube.com/vi/dMp0qgreAFw/hqdefault.jpg" alt="Miniatura do curta O Exame">
+              <span class="tag">Curta-metragem · 2018</span>
+              <span class="overlay"><span class="play">▶</span></span>
+            </a>
+            <div class="video-content">
+              <div class="year">Curta-metragem · 2018</div>
+              <h3>O Exame</h3>
+              <p>Projeto realizado durante a Oficina de Direção do Senac, em São Paulo.</p>
+              <div class="credit"><strong>Direção coletiva:</strong> Bruna Gabriel, Diego Campos, Felipe Fonseca, Ronaldo Cherri e Suzana Campos.</div>
+              <a class="watch" href="https://youtu.be/dMp0qgreAFw?is=Q-7VP2dV8Mrb8EsG" target="_blank" rel="noopener noreferrer">Assistir no YouTube <span>→</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="container about-inner">
+        <h2>Um olhar que vem da fotografia</h2>
+        <p>A fotografia é, para Suzana Campos, uma forma de escrever com a luz. No audiovisual, esse olhar se transforma em atenção aos personagens, aos espaços e aos detalhes que sustentam uma história.</p>
+        <p>O resultado é uma criação que une direção, imagem e sensibilidade para construir experiências visuais com presença.</p>
+      </div>
+    </section>
+
+    <section class="cta" id="contato">
+      <div class="container">
+        <h2>Vamos criar uma história juntos?</h2>
+        <p>Entre em contato para conversar sobre direção, fotografia, captação, edição ou produção de um novo projeto audiovisual.</p>
+        <a class="button" href="mailto:contato@entrenos.com.br?subject=Projeto%20audiovisual%20-%20Entre%20Nós">Entrar em contato</a>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container">© 2026 Entre Nós — Fotografia imobiliária e produção audiovisual.</div></footer>
+</body>
+</html>
