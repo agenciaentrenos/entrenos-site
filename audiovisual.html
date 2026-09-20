@@ -9,56 +9,66 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    :root{--bg:#fafafa;--ink:#1a1a1a;--muted:#666;--line:#e5e5e5;--accent:#8b7355;--accent-dark:#6d5a43;--dark:#1a1a1a;--shadow:0 10px 28px rgba(0,0,0,.10)}
-    html{scroll-behavior:smooth}
-    body{font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-weight:300}
-    h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:500;line-height:1.2}
-    a{text-decoration:none;color:inherit}
-    .container{width:min(1180px,calc(100% - 40px));margin:auto}
-    header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-    nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .logo{font-family:'Playfair Display',Georgia,serif;font-size:25px;font-weight:600}
-    .links{display:flex;align-items:center;list-style:none;gap:22px}
-    .links a{font-size:13px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);font-weight:500}
-    .links a:hover{color:var(--accent)}
-    .nav-button{background:var(--accent);color:#fff!important;border-radius:4px;padding:10px 16px}
-    .menu{display:none;border:0;background:transparent;font-size:26px}
-    .hero{padding:104px 0 82px;background:linear-gradient(135deg,#fafafa,#f1efec);text-align:center}
-    .eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:1.8px;color:var(--accent);font-weight:600;margin-bottom:16px}
-    .hero h1{font-size:clamp(40px,6vw,66px);letter-spacing:-1.5px;margin-bottom:20px}
-    .hero p{max-width:720px;margin:auto;color:var(--muted);font-size:18px}
-    section{padding:84px 0}
-    .section-head{max-width:720px;margin:0 auto 44px;text-align:center}
-    .section-head h2{font-size:clamp(30px,4vw,44px);margin-bottom:14px}
-    .section-head p{font-size:17px;color:var(--muted)}
-    .video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
-    .video-card{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:var(--shadow);transition:transform .25s ease,box-shadow .25s ease}
-    .video-card:hover{transform:translateY(-5px);box-shadow:0 15px 35px rgba(0,0,0,.13)}
-    .thumbnail{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;background:#1a1a1a}
-    .thumbnail img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
-    .video-card:hover .thumbnail img{transform:scale(1.04)}
-    .overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(to top,rgba(0,0,0,.55),rgba(0,0,0,.08))}
-    .play{display:grid;place-items:center;width:62px;height:62px;border-radius:50%;background:#fff;color:var(--accent);font-size:23px;padding-left:3px;box-shadow:0 4px 16px rgba(0,0,0,.3);transition:transform .2s ease}
-    .thumbnail:hover .play{transform:scale(1.1)}
-    .tag{position:absolute;left:15px;top:15px;background:rgba(0,0,0,.65);color:#fff;border-radius:3px;padding:5px 8px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.6px}
-    .video-content{padding:24px}
-    .video-content .year{color:var(--accent);font-size:12px;text-transform:uppercase;letter-spacing:1px;font-weight:600}
-    .video-content h3{font-size:28px;margin:8px 0 12px}
-    .video-content p{color:var(--muted);font-size:15px;margin-bottom:14px}
-    .credit{border-top:1px solid var(--line);padding-top:14px;font-size:13px;color:#51493f;line-height:1.55}
-    .watch{display:inline-flex;align-items:center;gap:9px;margin-top:19px;color:var(--accent);font-size:14px;font-weight:600}
-    .watch:hover{color:var(--accent-dark)}
-    .about{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .about-inner{max-width:800px;margin:auto;text-align:center}
-    .about-inner h2{font-size:clamp(30px,4vw,42px);margin-bottom:20px}
-    .about-inner p{font-size:17px;color:var(--muted);margin-bottom:16px}
-    .cta{background:linear-gradient(135deg,var(--accent),var(--accent-dark));color:#fff;text-align:center}
-    .cta h2{font-size:clamp(30px,4vw,44px);margin-bottom:14px}
-    .cta p{max-width:620px;margin:0 auto 28px;font-size:17px}
-    .button{display:inline-block;background:#fff;color:var(--accent);border-radius:4px;padding:13px 24px;font-size:14px;font-weight:600}
-    footer{padding:36px 0;background:var(--dark);color:#aaa;text-align:center;font-size:13px}
-    @media(max-width:760px){.links{display:none}.links.open{display:flex;position:absolute;top:78px;left:0;right:0;flex-direction:column;align-items:flex-start;background:#fff;padding:22px 20px;border-bottom:1px solid var(--line)}.menu{display:block}.hero{padding:76px 0 60px}.video-grid{grid-template-columns:1fr}section{padding:62px 0}}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #fafafa; --ink: #1a1a1a; --muted: #666; --line: #e5e5e5; --accent: #8b7355; --accent-dark: #6d5a43; --dark: #1a1a1a; --shadow: 0 10px 28px rgba(0,0,0,.10); }
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, Arial, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; font-weight: 300; }
+    h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; line-height: 1.2; }
+    a { text-decoration: none; color: inherit; }
+    .container { width: min(1180px, calc(100% - 40px)); margin: auto; }
+    header { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+    nav { height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 25px; font-weight: 600; }
+    .links { display: flex; align-items: center; list-style: none; gap: 22px; }
+    .links a { font-size: 13px; text-transform: uppercase; letter-spacing: .4px; color: var(--muted); font-weight: 500; }
+    .links a:hover { color: var(--accent); }
+    .nav-button { background: var(--accent); color: #fff !important; border-radius: 4px; padding: 10px 16px; }
+    .menu { display: none; border: 0; background: transparent; font-size: 26px; cursor: pointer; }
+    .hero { padding: 104px 0 82px; background: linear-gradient(135deg,#fafafa,#f1efec); text-align: center; }
+    .eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: 1.8px; color: var(--accent); font-weight: 600; margin-bottom: 16px; }
+    .hero h1 { font-size: clamp(40px,6vw,66px); letter-spacing: -1.5px; margin-bottom: 20px; }
+    .hero p { max-width: 720px; margin: auto; color: var(--muted); font-size: 18px; }
+    section { padding: 84px 0; }
+    .section-head { max-width: 720px; margin: 0 auto 44px; text-align: center; }
+    .section-head h2 { font-size: clamp(30px,4vw,44px); margin-bottom: 14px; }
+    .section-head p { font-size: 17px; color: var(--muted); }
+    .video-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 28px; }
+    .video-card { background: #fff; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); transition: transform .25s ease, box-shadow .25s ease; }
+    .video-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,.13); }
+    .thumbnail { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: #1a1a1a; }
+    .thumbnail img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
+    .video-card:hover .thumbnail img { transform: scale(1.04); }
+    .play-button { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; padding: 0; cursor: pointer; background: transparent; color: inherit; }
+    .play-button:focus-visible { outline: 3px solid #fff; outline-offset: -6px; }
+    .overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,.08)); }
+    .play { display: grid; place-items: center; width: 62px; height: 62px; border-radius: 50%; background: #fff; color: var(--accent); font-size: 23px; padding-left: 3px; box-shadow: 0 4px 16px rgba(0,0,0,.3); transition: transform .2s ease; }
+    .play-button:hover .play { transform: scale(1.1); }
+    .tag { position: absolute; left: 15px; top: 15px; background: rgba(0,0,0,.65); color: #fff; border-radius: 3px; padding: 5px 8px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .6px; }
+    .video-player iframe { display: block; width: 100%; height: 100%; border: 0; }
+    .video-content { padding: 24px; }
+    .video-content .year { color: var(--accent); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+    .video-content h3 { font-size: 28px; margin: 8px 0 12px; }
+    .video-content p { color: var(--muted); font-size: 15px; margin-bottom: 14px; }
+    .credit { border-top: 1px solid var(--line); padding-top: 14px; font-size: 13px; color: #51493f; line-height: 1.55; }
+    .watch { display: inline-flex; align-items: center; gap: 9px; margin-top: 19px; color: var(--accent); font-size: 14px; font-weight: 600; }
+    .watch:hover { color: var(--accent-dark); }
+    .about { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .about-inner { max-width: 800px; margin: auto; text-align: center; }
+    .about-inner h2 { font-size: clamp(30px,4vw,42px); margin-bottom: 20px; }
+    .about-inner p { font-size: 17px; color: var(--muted); margin-bottom: 16px; }
+    .cta { background: linear-gradient(135deg,var(--accent),var(--accent-dark)); color: #fff; text-align: center; }
+    .cta h2 { font-size: clamp(30px,4vw,44px); margin-bottom: 14px; }
+    .cta p { max-width: 620px; margin: 0 auto 28px; font-size: 17px; }
+    .button { display: inline-block; background: #fff; color: var(--accent); border-radius: 4px; padding: 13px 24px; font-size: 14px; font-weight: 600; }
+    footer { padding: 36px 0; background: var(--dark); color: #aaa; text-align: center; font-size: 13px; }
+    @media (max-width: 760px) {
+      .links { display: none; }
+      .links.open { display: flex; position: absolute; top: 78px; left: 0; right: 0; flex-direction: column; align-items: flex-start; background: #fff; padding: 22px 20px; border-bottom: 1px solid var(--line); }
+      .menu { display: block; }
+      .hero { padding: 76px 0 60px; }
+      .video-grid { grid-template-columns: 1fr; }
+      section { padding: 62px 0; }
+    }
   </style>
 </head>
 <body>
@@ -95,11 +105,13 @@
 
         <div class="video-grid">
           <article class="video-card">
-            <a class="thumbnail" href="https://youtu.be/p9d8Fo-XjCw?is=z3P_-dA8agNMqbeL" target="_blank" rel="noopener noreferrer" aria-label="Assistir A Crise no YouTube">
+            <div class="thumbnail video-player" data-video-id="p9d8Fo-XjCw" data-title="A Crise">
               <img src="https://img.youtube.com/vi/p9d8Fo-XjCw/hqdefault.jpg" alt="Miniatura do curta A Crise">
-              <span class="tag">Curta-metragem · 2021</span>
-              <span class="overlay"><span class="play">▶</span></span>
-            </a>
+              <button class="play-button" type="button" aria-label="Reproduzir A Crise nesta página">
+                <span class="tag">Curta-metragem · 2021</span>
+                <span class="overlay"><span class="play">▶</span></span>
+              </button>
+            </div>
             <div class="video-content">
               <div class="year">Curta-metragem · 2021</div>
               <h3>A Crise</h3>
@@ -110,11 +122,13 @@
           </article>
 
           <article class="video-card">
-            <a class="thumbnail" href="https://youtu.be/ajwr-n3SEF8?is=XTpWZBg1hOu37YZk" target="_blank" rel="noopener noreferrer" aria-label="Assistir Bia no YouTube">
+            <div class="thumbnail video-player" data-video-id="ajwr-n3SEF8" data-title="Bia">
               <img src="https://img.youtube.com/vi/ajwr-n3SEF8/hqdefault.jpg" alt="Miniatura do curta Bia">
-              <span class="tag">Curta-metragem</span>
-              <span class="overlay"><span class="play">▶</span></span>
-            </a>
+              <button class="play-button" type="button" aria-label="Reproduzir Bia nesta página">
+                <span class="tag">Curta-metragem</span>
+                <span class="overlay"><span class="play">▶</span></span>
+              </button>
+            </div>
             <div class="video-content">
               <div class="year">Curta-metragem</div>
               <h3>Bia</h3>
@@ -125,11 +139,13 @@
           </article>
 
           <article class="video-card">
-            <a class="thumbnail" href="https://youtu.be/XpuNYKQJYAM?is=y4Mwj4LUS7ze6n_V" target="_blank" rel="noopener noreferrer" aria-label="Assistir Emprego dos Sonhos no YouTube">
+            <div class="thumbnail video-player" data-video-id="XpuNYKQJYAM" data-title="Emprego dos Sonhos">
               <img src="https://img.youtube.com/vi/XpuNYKQJYAM/hqdefault.jpg" alt="Miniatura do curta Emprego dos Sonhos">
-              <span class="tag">Curta-metragem · 2018</span>
-              <span class="overlay"><span class="play">▶</span></span>
-            </a>
+              <button class="play-button" type="button" aria-label="Reproduzir Emprego dos Sonhos nesta página">
+                <span class="tag">Curta-metragem · 2018</span>
+                <span class="overlay"><span class="play">▶</span></span>
+              </button>
+            </div>
             <div class="video-content">
               <div class="year">Curta-metragem · 2018</div>
               <h3>Emprego dos Sonhos</h3>
@@ -140,11 +156,13 @@
           </article>
 
           <article class="video-card">
-            <a class="thumbnail" href="https://youtu.be/dMp0qgreAFw?is=Q-7VP2dV8Mrb8EsG" target="_blank" rel="noopener noreferrer" aria-label="Assistir O Exame no YouTube">
+            <div class="thumbnail video-player" data-video-id="dMp0qgreAFw" data-title="O Exame">
               <img src="https://img.youtube.com/vi/dMp0qgreAFw/hqdefault.jpg" alt="Miniatura do curta O Exame">
-              <span class="tag">Curta-metragem · 2018</span>
-              <span class="overlay"><span class="play">▶</span></span>
-            </a>
+              <button class="play-button" type="button" aria-label="Reproduzir O Exame nesta página">
+                <span class="tag">Curta-metragem · 2018</span>
+                <span class="overlay"><span class="play">▶</span></span>
+              </button>
+            </div>
             <div class="video-content">
               <div class="year">Curta-metragem · 2018</div>
               <h3>O Exame</h3>
@@ -175,5 +193,23 @@
   </main>
 
   <footer><div class="container">© 2026 Entre Nós — Fotografia imobiliária e produção audiovisual.</div></footer>
+
+  <script>
+    document.querySelectorAll('.video-player').forEach(function (player) {
+      var button = player.querySelector('.play-button');
+
+      button.addEventListener('click', function () {
+        var videoId = player.dataset.videoId;
+        var title = player.dataset.title;
+
+        player.innerHTML =
+          '<iframe ' +
+          'src="https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0" ' +
+          'title="' + title + '" ' +
+          'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ' +
+          'allowfullscreen></iframe>';
+      });
+    });
+  </script>
 </body>
 </html>
