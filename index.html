@@ -122,14 +122,13 @@
       font-size: 26px;
     }
 
+    /* CAPA SEM FOTO */
     .hero {
       min-height: 620px;
       display: grid;
       align-items: center;
-      background:
-        linear-gradient(90deg, rgba(20, 20, 20, 0.74), rgba(20, 20, 20, 0.30)),
-        url("Portfolio imovel 4 (1).jpg") center / cover;
-      color: #fff;
+      background: linear-gradient(135deg, #fbfaf8 0%, #f1efec 100%);
+      color: var(--ink);
     }
 
     .hero-content {
@@ -139,7 +138,7 @@
 
     .eyebrow {
       margin-bottom: 16px;
-      color: #e8d4bc;
+      color: var(--accent);
       font-size: 12px;
       font-weight: 600;
       letter-spacing: 1.8px;
@@ -154,7 +153,7 @@
 
     .hero p {
       max-width: 620px;
-      color: rgba(255, 255, 255, 0.90);
+      color: var(--muted);
       font-size: 19px;
     }
 
@@ -168,17 +167,17 @@
     .button {
       display: inline-block;
       border-radius: 4px;
-      background: #fff;
-      color: var(--accent-dark);
+      background: var(--accent);
+      color: #fff;
       padding: 13px 22px;
       font-size: 14px;
       font-weight: 600;
     }
 
     .button-outline {
-      border: 1px solid rgba(255, 255, 255, 0.7);
+      border: 1px solid var(--accent);
       background: transparent;
-      color: #fff;
+      color: var(--accent);
     }
 
     section {
@@ -259,6 +258,8 @@
 
     .card .button {
       width: fit-content;
+      background: #fff;
+      color: var(--accent-dark);
     }
 
     .about {
@@ -304,6 +305,11 @@
       max-width: 620px;
       margin: 0 auto 28px;
       font-size: 17px;
+    }
+
+    .cta .button {
+      background: #fff;
+      color: var(--accent-dark);
     }
 
     footer {
@@ -411,7 +417,9 @@
       <div class="container">
         <div class="hero-content">
           <div class="eyebrow">Fotografia e audiovisual</div>
+
           <h1>Imagens que aproximam espaços, pessoas e histórias.</h1>
+
           <p>
             Fotografia imobiliária, home staging digital, produção audiovisual
             e projetos visuais construídos com olhar, técnica e intenção.
@@ -429,6 +437,7 @@
       <div class="container">
         <div class="section-head">
           <h2>Conheça os trabalhos</h2>
+
           <p>
             Navegue pelas áreas da Entre Nós e encontre a solução visual adequada
             para cada projeto.
@@ -438,20 +447,31 @@
         <div class="cards">
           <article class="card card-imoveis">
             <h3>Fotografia imobiliária</h3>
+
             <p>Imagens de arquitetura, interiores, exteriores e home staging digital.</p>
+
             <a class="button" href="portfolio.html">Ver imóveis</a>
           </article>
 
           <article class="card card-audiovisual">
             <h3>Audiovisual</h3>
+
             <p>Vídeos, direção e narrativas visuais para comunicar projetos e experiências.</p>
+
             <a class="button" href="audiovisual.html">Ver audiovisual</a>
           </article>
 
           <article class="card card-outros">
             <h3>Fotografia culinária</h3>
-            <p>Fotografia de pratos, ingredientes e preparos que destaca sabores, texturas e experiências.</p>
-            <a class="button" href="portfolio-comida.html">Ver fotografia culinária</a>
+
+            <p>
+              Fotografia de pratos, ingredientes e preparos que destaca sabores,
+              texturas e experiências.
+            </p>
+
+            <a class="button" href="portfolio-comida.html">
+              Ver fotografia culinária
+            </a>
           </article>
         </div>
       </div>
@@ -462,19 +482,25 @@
         <div class="about-grid">
           <div>
             <div class="eyebrow">Entre Nós</div>
+
             <h2>Uma imagem bem construída muda a forma como algo é percebido.</h2>
+
             <p>
               Cada projeto começa pela escuta. A partir dela, criamos imagens
               que valorizam espaços, produtos, marcas e experiências de forma
               verdadeira e cuidadosa.
             </p>
+
             <p>
               O resultado é uma comunicação visual mais clara, atraente e
               coerente com a identidade de quem está sendo fotografado ou filmado.
             </p>
           </div>
 
-          <div class="about-image" aria-label="Fotografia de ambiente imobiliário"></div>
+          <div
+            class="about-image"
+            aria-label="Fotografia de ambiente imobiliário"
+          ></div>
         </div>
       </div>
     </section>
@@ -482,9 +508,11 @@
     <section class="cta" id="contato">
       <div class="container">
         <h2>Vamos conversar sobre seu projeto?</h2>
+
         <p>
           Entre em contato para solicitar um orçamento ou apresentar sua ideia.
         </p>
+
         <a
           class="button"
           href="mailto:contato@entrenos.com.br?subject=Contato%20-%20Entre%20N%C3%B3s"
