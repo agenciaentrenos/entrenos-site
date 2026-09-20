@@ -1,139 +1,504 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entre Nós — Fotografia Imobiliária e Produção Audiovisual</title>
-    <meta name="description" content="Fotografia imobiliária, vídeos e produção audiovisual para apresentar cada projeto com clareza, beleza e intenção.">
-    <meta property="og:title" content="Entre Nós — Fotografia e Audiovisual">
-    <meta property="og:description" content="Imagens que fazem espaços e histórias serem percebidos.">
-    <meta property="og:type" content="website">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --cor-fundo: #FAFAFA; --cor-texto: #1A1A1A; --cor-texto-suave: #666666; --cor-destaque: #8B7355; --cor-destaque-hover: #6D5A43; --cor-borda: #E5E5E5; --cor-cartao: #FFFFFF; --sombra-media: 0 4px 16px rgba(0,0,0,0.08); }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: var(--cor-fundo); color: var(--cor-texto); line-height: 1.6; font-size: 16px; font-weight: 300; }
-        h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; line-height: 1.3; }
-        a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
-        img { max-width: 100%; height: auto; display: block; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-        header { position: fixed; top: 0; left: 0; right: 0; background: rgba(255,255,255,.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--cor-borda); z-index: 1000; padding: 16px 0; }
-        nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 600; color: var(--cor-texto); letter-spacing: -.5px; }
-        .nav-links { display: flex; gap: 24px; list-style: none; align-items: center; }
-        .nav-links a { font-size: 13px; font-weight: 500; color: var(--cor-texto-suave); text-transform: uppercase; letter-spacing: .4px; }
-        .nav-links a:hover { color: var(--cor-destaque); }
-        .nav-cta { background-color: var(--cor-destaque); color: white !important; padding: 10px 18px; border-radius: 4px; font-weight: 600 !important; }
-        .nav-cta:hover { background-color: var(--cor-destaque-hover); }
-        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 5px; }
-        .menu-toggle span { width: 24px; height: 2px; background-color: var(--cor-texto); }
-        .hero { padding: 160px 0 100px; text-align: center; background: linear-gradient(135deg,#FAFAFA 0%,#F5F5F5 100%); }
-        .hero h1 { font-size: clamp(32px,5vw,56px); margin-bottom: 24px; color: var(--cor-texto); letter-spacing: -1px; }
-        .hero p { font-size: clamp(16px,2vw,20px); color: var(--cor-texto-suave); max-width: 680px; margin: 0 auto 40px; }
-        .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-        .btn { display: inline-block; padding: 14px 32px; border-radius: 4px; font-size: 15px; font-weight: 500; text-align: center; transition: all .3s ease; cursor: pointer; border: none; }
-        .btn-primary { background-color: var(--cor-destaque); color: white; }
-        .btn-primary:hover { background-color: var(--cor-destaque-hover); transform: translateY(-2px); box-shadow: var(--sombra-media); }
-        .btn-secondary { background-color: transparent; color: var(--cor-texto); border: 2px solid var(--cor-borda); }
-        .btn-secondary:hover { border-color: var(--cor-destaque); color: var(--cor-destaque); }
-        .servicos { padding: 100px 0; background-color: var(--cor-cartao); }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h2 { font-size: clamp(28px,4vw,40px); margin-bottom: 16px; }
-        .section-header p { color: var(--cor-texto-suave); font-size: 18px; max-width: 600px; margin: 0 auto; }
-        .servicos-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 32px; }
-        .servico-card { background-color: var(--cor-fundo); padding: 40px 32px; border-radius: 8px; transition: all .3s ease; border: 1px solid var(--cor-borda); }
-        .servico-card:hover { transform: translateY(-4px); box-shadow: var(--sombra-media); border-color: var(--cor-destaque); }
-        .servico-icon { font-size: 38px; margin-bottom: 24px; display: block; }
-        .servico-card h3 { font-size: 24px; margin-bottom: 16px; }
-        .servico-card p { color: var(--cor-texto-suave); font-size: 15px; line-height: 1.7; margin-bottom: 24px; }
-        .servico-link { color: var(--cor-destaque); font-weight: 500; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; }
-        .portfolio-destaque { padding: 100px 0; }
-        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 24px; margin-top: 40px; }
-        .portfolio-item { position: relative; border-radius: 8px; overflow: hidden; aspect-ratio: 4/3; background-color: #f0f0f0; }
-        .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
-        .portfolio-item:hover img { transform: scale(1.05); }
-        .portfolio-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top,rgba(0,0,0,.7) 0%,transparent 100%); padding: 24px; color: white; }
-        .portfolio-overlay h3 { font-size: 20px; margin-bottom: 8px; font-family: 'Inter', sans-serif; font-weight: 500; }
-        .portfolio-overlay p { font-size: 14px; opacity: .9; }
-        .sobre { padding: 100px 0; background-color: var(--cor-cartao); }
-        .sobre-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .sobre-texto h2 { font-size: clamp(28px,4vw,40px); margin-bottom: 24px; }
-        .sobre-texto p { color: var(--cor-texto-suave); font-size: 16px; line-height: 1.8; margin-bottom: 24px; }
-        .sobre-imagem { border-radius: 8px; overflow: hidden; box-shadow: var(--sombra-media); }
-        .cta { padding: 100px 0; text-align: center; background: linear-gradient(135deg,var(--cor-destaque) 0%,var(--cor-destaque-hover) 100%); color: white; }
-        .cta h2 { font-size: clamp(28px,4vw,40px); margin-bottom: 16px; color: white; }
-        .cta p { font-size: 18px; opacity: .95; max-width: 600px; margin: 0 auto 32px; }
-        .btn-white { background-color: white; color: var(--cor-destaque); }
-        .btn-white:hover { background-color: #f5f5f5; }
-        footer { background-color: #1A1A1A; color: #CCC; padding: 60px 0 40px; }
-        .footer-content { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 40px; margin-bottom: 40px; }
-        .footer-col h4 { color: white; font-size: 16px; margin-bottom: 20px; font-family: 'Inter', sans-serif; font-weight: 600; }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 12px; }
-        .footer-col a { color: #CCC; font-size: 14px; }
-        .footer-col a:hover { color: white; }
-        .footer-bottom { border-top: 1px solid #333; padding-top: 24px; text-align: center; font-size: 14px; color: #999; }
-        .whatsapp-float { position: fixed; bottom: 24px; right: 24px; background-color: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; box-shadow: 0 4px 12px rgba(37,211,102,.4); z-index: 999; transition: all .3s ease; }
-        .whatsapp-float:hover { transform: scale(1.1); }
-        @media (max-width: 850px) { .nav-links { display:none; position:absolute; top:100%; left:0; right:0; background:white; flex-direction:column; padding:24px; gap:16px; border-bottom:1px solid var(--cor-borda); align-items:flex-start; } .nav-links.active { display:flex; } .menu-toggle { display:flex; } .hero { padding:120px 0 60px; } .servicos,.portfolio-destaque,.sobre,.cta { padding:60px 0; } .sobre-content { grid-template-columns:1fr; gap:40px; } .portfolio-grid { grid-template-columns:1fr; } .footer-content { grid-template-columns:1fr; gap:32px; } }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entre Nós | Fotografia e Audiovisual</title>
+  <meta
+    name="description"
+    content="Entre Nós — fotografia imobiliária, home staging digital, audiovisual e projetos visuais."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #fafafa;
+      --ink: #1a1a1a;
+      --muted: #666;
+      --line: #e5e5e5;
+      --accent: #8b7355;
+      --accent-dark: #6d5a43;
+      --dark: #1a1a1a;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, Arial, sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 78px;
+    }
+
+    .logo {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 25px;
+      font-weight: 600;
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .links a {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    .links a:hover,
+    .links a.active {
+      color: var(--accent);
+    }
+
+    .nav-button {
+      border-radius: 4px;
+      background: var(--accent);
+      color: #fff !important;
+      padding: 10px 16px;
+    }
+
+    .menu {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      font-size: 26px;
+    }
+
+    .hero {
+      min-height: 620px;
+      display: grid;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(20, 20, 20, 0.74), rgba(20, 20, 20, 0.30)),
+        url("Foto Sukha Campos.jpg") center / cover;
+      color: #fff;
+    }
+
+    .hero-content {
+      max-width: 720px;
+      padding: 100px 0;
+    }
+
+    .eyebrow {
+      margin-bottom: 16px;
+      color: #e8d4bc;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin-bottom: 20px;
+      font-size: clamp(45px, 7vw, 78px);
+      letter-spacing: -1.5px;
+    }
+
+    .hero p {
+      max-width: 620px;
+      color: rgba(255, 255, 255, 0.90);
+      font-size: 19px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-block;
+      border-radius: 4px;
+      background: #fff;
+      color: var(--accent-dark);
+      padding: 13px 22px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .button-outline {
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      background: transparent;
+      color: #fff;
+    }
+
+    section {
+      padding: 84px 0;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin: 0 auto 44px;
+      text-align: center;
+    }
+
+    .section-head h2 {
+      margin-bottom: 14px;
+      font-size: clamp(30px, 4vw, 44px);
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      min-height: 365px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+      border-radius: 9px;
+      background: #ddd;
+      color: #fff;
+      padding: 30px;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .card::before {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(transparent 20%, rgba(0, 0, 0, 0.84));
+      content: "";
+    }
+
+    .card-imoveis {
+      background:
+        linear-gradient(transparent, rgba(0, 0, 0, 0.80)),
+        url("Portfolio imovel 4 (1).jpg") center / cover;
+    }
+
+    .card-audiovisual {
+      background:
+        linear-gradient(transparent, rgba(0, 0, 0, 0.80)),
+        url("Portfolio diversos (2).jpg") center / cover;
+    }
+
+    .card-outros {
+      background:
+        linear-gradient(transparent, rgba(0, 0, 0, 0.80)),
+        url("culinaria-01.jpg") center / cover;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 29px;
+    }
+
+    .card p {
+      margin-bottom: 20px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .card .button {
+      width: fit-content;
+    }
+
+    .about {
+      background: #f1efec;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .about h2 {
+      margin-bottom: 18px;
+      font-size: clamp(31px, 4vw, 46px);
+    }
+
+    .about p {
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .about-image {
+      min-height: 420px;
+      border-radius: 9px;
+      background: url("Foto Sukha Campos.jpg") center / cover;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #fff;
+      text-align: center;
+    }
+
+    .cta h2 {
+      margin-bottom: 14px;
+      font-size: clamp(30px, 4vw, 44px);
+    }
+
+    .cta p {
+      max-width: 620px;
+      margin: 0 auto 28px;
+      font-size: 17px;
+    }
+
+    footer {
+      padding: 36px 0;
+      background: var(--dark);
+      color: #aaa;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 840px) {
+      .links {
+        display: none;
+      }
+
+      .links.open {
+        position: absolute;
+        top: 78px;
+        right: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        border-bottom: 1px solid var(--line);
+        background: #fff;
+        padding: 22px 20px;
+      }
+
+      .menu {
+        display: block;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        min-height: 300px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .about-image {
+        min-height: 310px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .container {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .hero {
+        min-height: 560px;
+      }
+
+      .hero-content {
+        padding: 86px 0;
+      }
+
+      section {
+        padding: 62px 0;
+      }
+
+      .hero p,
+      .section-head p,
+      .about p {
+        font-size: 16px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">Entre Nós</a>
-                <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menu"><span></span><span></span><span></span></button>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="portfolio.html">Portfólio</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="remoto.html">Remoto</a></li>
-                    <li><a href="presencial.html">Presencial</a></li>
-                    <li><a href="consultoria.html">Consultoria</a></li>
-                    <li><a href="#contato" class="nav-cta">Orçamento</a></li>
-                </ul>
-            </nav>
+  <header>
+    <div class="container">
+      <nav>
+        <a class="logo" href="index.html">Entre Nós</a>
+
+        <button
+          class="menu"
+          type="button"
+          aria-label="Abrir menu"
+          onclick="document.querySelector('.links').classList.toggle('open')"
+        >
+          ☰
+        </button>
+
+        <ul class="links">
+          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Imóveis</a></li>
+          <li><a href="audiovisual.html">Audiovisual</a></li>
+          <li><a href="outros-trabalhos.html">Outros trabalhos</a></li>
+          <li><a class="nav-button" href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow">Fotografia e audiovisual</div>
+          <h1>Imagens que aproximam espaços, pessoas e histórias.</h1>
+          <p>
+            Fotografia imobiliária, home staging digital, produção audiovisual
+            e projetos visuais construídos com olhar, técnica e intenção.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button" href="portfolio.html">Ver portfólio imobiliário</a>
+            <a class="button button-outline" href="audiovisual.html">Ver audiovisual</a>
+          </div>
         </div>
-    </header>
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1>Imagens que fazem espaços e histórias serem percebidos</h1>
-                <p>Fotografia imobiliária, vídeos e produção audiovisual para apresentar cada projeto com clareza, beleza e intenção.</p>
-                <div class="hero-buttons"><a href="#contato" class="btn btn-primary">Solicitar orçamento</a><a href="portfolio.html" class="btn btn-secondary">Ver portfólio</a></div>
-            </div>
-        </section>
-        <section class="servicos" id="servicos">
-            <div class="container">
-                <div class="section-header"><h2>O que fazemos</h2><p>Três frentes de trabalho que se complementam para criar imagens com propósito.</p></div>
-                <div class="servicos-grid">
-                    <article class="servico-card"><span class="servico-icon" aria-hidden="true">⌂</span><h3>Fotografia imobiliária</h3><p>Imagens profissionais de interiores e exteriores que valorizam cada ambiente. Fotografia, vídeo vertical para redes sociais e tour virtual para apresentar seu imóvel da melhor forma.</p><a href="remoto.html" class="servico-link">Saiba mais →</a></article>
-                    <article class="servico-card"><span class="servico-icon" aria-hidden="true">◉</span><h3>Produção audiovisual</h3><p>Direção, roteiro, captação e edição para projetos que precisam de narrativa visual. Do conceito à entrega final, criamos conteúdos que comunicam com intenção.</p><a href="presencial.html" class="servico-link">Saiba mais →</a></article>
-                    <article class="servico-card"><span class="servico-icon" aria-hidden="true">✦</span><h3>Projetos autorais</h3><p>Curtas-metragens e trabalhos experimentais que exploram a psicologia humana e questões sociais. Nossa visão artística alimenta todo o trabalho comercial.</p><a href="portfolio.html" class="servico-link">Conheça →</a></article>
-                </div>
-            </div>
-        </section>
-        <section class="portfolio-destaque">
-            <div class="container">
-                <div class="section-header"><h2>Trabalhos em destaque</h2><p>Uma seleção dos nossos projetos recentes.</p></div>
-                <div class="portfolio-grid">
-                    <a href="portfolio.html" class="portfolio-item"><img src="Portfolio%20imovel%204%20(1).jpg" alt="Fotografia de imóvel residencial" loading="lazy"><div class="portfolio-overlay"><h3>Fotografia imobiliária</h3><p>Interiores e exteriores</p></div></a>
-                    <a href="portfolio.html" class="portfolio-item"><img src="Com%20homestaging%20(2).png" alt="Ambiente com homestaging digital" loading="lazy"><div class="portfolio-overlay"><h3>Homestaging digital</h3><p>Transformação visual com IA</p></div></a>
-                    <a href="portfolio.html" class="portfolio-item"><img src="Portfolio%20diversos%20(2).jpg" alt="Produção audiovisual" loading="lazy"><div class="portfolio-overlay"><h3>Produção audiovisual</h3><p>Direção e fotografia</p></div></a>
-                </div>
-                <div style="text-align:center;margin-top:40px"><a href="portfolio.html" class="btn btn-secondary">Ver portfólio completo</a></div>
-            </div>
-        </section>
-        <section class="sobre" id="sobre">
-            <div class="container"><div class="sobre-content"><div class="sobre-texto"><h2>Sobre a Entre Nós</h2><p>A Entre Nós nasceu da experiência de Suzana Campos com fotografia, cinema e produção audiovisual. Formada em Produção Audiovisual, Suzana atua na criação de imagens que comunicam, valorizam espaços e aproximam pessoas de histórias.</p><p>Com trabalhos em fotografia imobiliária, direção de curtas-metragens e projetos autorais, a Entre Nós une técnica e sensibilidade para criar imagens com propósito.</p><a href="capacitacao-pt.html" class="servico-link">Conheça nossa trajetória →</a></div><div class="sobre-imagem"><img src="Foto%20Sukha%20Campos.jpg" alt="Suzana Campos, fotógrafa e produtora audiovisual" loading="lazy"></div></div></div>
-        </section>
-        <section class="cta" id="contato"><div class="container"><h2>Vamos conversar sobre seu projeto?</h2><p>Conte-nos o que você precisa e vamos encontrar a melhor forma de apresentar seu imóvel ou história.</p><a href="mailto:contato@entrenos.com.br?subject=Orçamento%20-%20Entre%20Nós" class="btn btn-white">Solicitar orçamento por e-mail</a></div></section>
-    </main>
-    <footer><div class="container"><div class="footer-content"><div class="footer-col"><h4>Entre Nós</h4><ul><li><a href="index.html">Home</a></li><li><a href="portfolio.html">Portfólio</a></li><li><a href="#sobre">Sobre</a></li></ul></div><div class="footer-col"><h4>Serviços</h4><ul><li><a href="remoto.html">Atendimento remoto</a></li><li><a href="presencial.html">Atendimento presencial</a></li><li><a href="consultoria.html">Consultoria</a></li><li><a href="capacitacao-pt.html">Capacitação</a></li></ul></div><div class="footer-col"><h4>Contato</h4><ul><li><a href="mailto:contato@entrenos.com.br">contato@entrenos.com.br</a></li><li>São Paulo, SP</li></ul></div></div><div class="footer-bottom"><p>© 2026 Entre Nós. Todos os direitos reservados.</p></div></div></footer>
-    <script>function toggleMenu(){document.getElementById('navLinks').classList.toggle('active')}document.querySelectorAll('.nav-links a').forEach(function(link){link.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('active')})});document.querySelectorAll('a[href^="#"]').forEach(function(anchor){anchor.addEventListener('click',function(e){var target=document.querySelector(this.getAttribute('href'));if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'})}})});</script>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>Conheça os trabalhos</h2>
+          <p>
+            Navegue pelas áreas da Entre Nós e encontre a solução visual adequada
+            para cada projeto.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card card-imoveis">
+            <h3>Fotografia imobiliária</h3>
+            <p>Imagens de arquitetura, interiores, exteriores e home staging digital.</p>
+            <a class="button" href="portfolio.html">Ver imóveis</a>
+          </article>
+
+          <article class="card card-audiovisual">
+            <h3>Audiovisual</h3>
+            <p>Vídeos, direção e narrativas visuais para comunicar projetos e experiências.</p>
+            <a class="button" href="audiovisual.html">Ver audiovisual</a>
+          </article>
+
+          <article class="card card-outros">
+            <h3>Outros trabalhos</h3>
+            <p>Fotografia culinária, projetos autorais e diferentes narrativas visuais.</p>
+            <a class="button" href="outros-trabalhos.html">Ver outros trabalhos</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="container">
+        <div class="about-grid">
+          <div>
+            <div class="eyebrow">Entre Nós</div>
+            <h2>Uma imagem bem construída muda a forma como algo é percebido.</h2>
+            <p>
+              Cada projeto começa pela escuta. A partir dela, criamos imagens
+              que valorizam espaços, produtos, marcas e experiências de forma
+              verdadeira e cuidadosa.
+            </p>
+            <p>
+              O resultado é uma comunicação visual mais clara, atraente e
+              coerente com a identidade de quem está sendo fotografado ou filmado.
+            </p>
+          </div>
+
+          <div class="about-image" aria-label="Profissional da Entre Nós"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contato">
+      <div class="container">
+        <h2>Vamos conversar sobre seu projeto?</h2>
+        <p>
+          Entre em contato para solicitar um orçamento ou apresentar sua ideia.
+        </p>
+        <a
+          class="button"
+          href="mailto:contato@entrenos.com.br?subject=Contato%20-%20Entre%20N%C3%B3s"
+        >
+          Entrar em contato
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Entre Nós — Fotografia imobiliária e produção audiovisual.
+    </div>
+  </footer>
 </body>
 </html>
